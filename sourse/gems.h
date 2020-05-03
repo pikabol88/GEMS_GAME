@@ -18,7 +18,7 @@ public:
     int m_j = 0;//!< координата столбца
     int m_bonusType = 0;//!< тип гемса(если является бонусным)
    
-    QImage m_type;//!< Тип гемса
+    QImage m_type;//!< Тип гема
 
 
     Gem(int i, int j, QWidget *parent = 0);

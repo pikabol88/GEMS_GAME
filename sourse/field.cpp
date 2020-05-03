@@ -6,10 +6,8 @@ Field::Field(QWidget *parent) :QWidget(parent) {
     setStyleSheet(m_background);
     m_isClicked = false;
     points = new Score(this);
-   // points = QSharedPointer<Score>(new Score(this));
     resize(M_WIDTH, M_HEIGHT);
     init_game();
-    //std::shared_ptr<Gem> m_bonusGem(new BonusGem(m_field[0][0]));
     m_bonusGem = new BonusGem(m_field[0][0]);
 }
 

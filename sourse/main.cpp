@@ -11,7 +11,6 @@ int main(int argc, char *argv[]) {
     GameWindow window;
     Meditator *widget = new Meditator;
     window.m_game_components = QSharedPointer<Meditator>(widget);
-    //window.m = widget;
     
     widget->setLayout(layout);
     window.setCentralWidget(widget);
