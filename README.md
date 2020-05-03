@@ -1,2 +1,2 @@
 # GEMS_GAME
-  Implementation the classic match three game in C++, using Qt
+  Implementation of the classic match three game in C++, using Qt
