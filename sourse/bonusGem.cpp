@@ -1,8 +1,6 @@
 #include"bonusGem.h"
-#include <QMessageBox>
-#include "warning.h"
 
-BonusGem::BonusGem(bonus_t type, int i, int j, QWidget *parent) : Gem( i, j, parent),m_bonusType(type) {}
+BonusGem::BonusGem(bonus_t type, int i, int j, QWidget *parent) : Gem( i, j, parent),m_color(type) {}
 
 BonusGem::BonusGem(Gem *gem):Gem(gem->m_i,gem->m_j, 0) {
     if (all_types.size() == 0) {
@@ -13,22 +11,16 @@ BonusGem::BonusGem(Gem *gem):Gem(gem->m_i,gem->m_j, 0) {
     int type = rand() % all_types.size();
     m_type = all_types.at(type);
     if (type == 1) {
-        m_bonusType = BOMB;
+        m_color = BOMB;
     } else
-        m_bonusType = LINE_EXPLOSION;    
+        m_color = LINE_EXPLOSION;    
 }
 
 void BonusGem::loadImages() {
     QImage tmp;
-    tmp.load("img\\img_mask.png");
-    if (tmp.isNull()) {
-        img_error();
-    }
+    tmp.load("img_mask.png");
     all_types.append(tmp);
-    tmp.load("img\\img_dez.png");
-    if (tmp.isNull()) {
-        img_error();
-    }
+    tmp.load("img_dez.png");
     all_types.append(tmp);
 }
 
@@ -37,9 +29,9 @@ void BonusGem::setRandomType() {
     int type = rand() % size;
     m_type = all_types.at(type);
     if (type == 1) {
-        m_bonusType = BOMB;
+        m_color = BOMB;
     } else
-        m_bonusType = LINE_EXPLOSION;
+        m_color = LINE_EXPLOSION;
 }
 
 BonusGem::~BonusGem() {}

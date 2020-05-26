@@ -3,7 +3,7 @@
 #pragma once
 
 #include <QThread>
-//!Класс QThread предоставляет способ управления потоками (используется для задержек перед перерисовками)
+
 class thread_hack : public QThread {
 public:
     using QThread::sleep;

@@ -12,27 +12,17 @@
 #include "meditator.h"
 #include "infowindow.h"
 
-//!Класс главного окна игры
-class GameWindow : public QMainWindow {
+class MainWindow : public QMainWindow {
 public:
-    GameWindow(QWidget *parent = 0);
-    ~GameWindow();
-
-    //!Все элементы игрового окна
-    QSharedPointer<Meditator> m_game_components;
-
+    MainWindow(QWidget *parent = 0);
+    ~MainWindow();
+    QSharedPointer<Meditator>m;
+   // Meditator *m;
 private slots:
-
-    //!Слот изменения стиля игрового пространства
     void changeStyleDark();
-    //!Слот изменения стиля игрового пространства
     void changeStyleLight();
-    //!Слот изменения стиля игрового пространства
     void changeStyleOcean();
-
-    //!Слот вызова окна информации
     void showHelp();
-    //!Слот сброса и перезагрузки игрового процесса
     void restart();
 };
 

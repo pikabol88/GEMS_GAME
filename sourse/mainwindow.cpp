@@ -1,14 +1,14 @@
 #include"mainwindow.h"
 
-GameWindow::GameWindow(QWidget *parent) : QMainWindow(parent) {
+MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
 
-    QPixmap newImg("img\\img_new.png");
-    QPixmap helpImg("img\\img_help.png");
-    QPixmap quitImg("img\\img_quit.png");
+    QPixmap newImg("img_new.png");
+    QPixmap helpImg("img_help.png");
+    QPixmap quitImg("img_quit.png");
 
-    QPixmap darkImg("img\\img_dark.png");
-    QPixmap lightImg("img\\img_light.png");
-    QPixmap oceanImg("img\\img_ocean.jpg");
+    QPixmap darkImg("img_dark.png");
+    QPixmap lightImg("img_light.png");
+    QPixmap oceanImg("img_ocean.jpg");
 
     QAction *helpAction = new QAction(helpImg, "&Help", this);
     QAction *newGameAction = new QAction(newImg, "&New", this);
@@ -40,43 +40,43 @@ GameWindow::GameWindow(QWidget *parent) : QMainWindow(parent) {
     statusBar()->showMessage("                                Kill all viruses - save the planet");
 
     connect(quitAction, &QAction::triggered, qApp, &QApplication::quit);
-    connect(helpAction, &QAction::triggered, this, &GameWindow::showHelp);
-    connect(newGameAction, &QAction::triggered, this, &GameWindow::restart);
+    connect(helpAction, &QAction::triggered, this, &MainWindow::showHelp);
+    connect(newGameAction, &QAction::triggered, this, &MainWindow::restart);
 
-    connect(dartStyleAction, &QAction::triggered, this, &GameWindow::changeStyleDark);
-    connect(lightStyleAction, &QAction::triggered, this, &GameWindow::changeStyleLight);
-    connect(oceanStyleAction, &QAction::triggered, this, &GameWindow::changeStyleOcean);
+    connect(dartStyleAction, &QAction::triggered, this, &MainWindow::changeStyleDark);
+    connect(lightStyleAction, &QAction::triggered, this, &MainWindow::changeStyleLight);
+    connect(oceanStyleAction, &QAction::triggered, this, &MainWindow::changeStyleOcean);
 }
 
 
-void GameWindow::showHelp() {
+void MainWindow::showHelp() {
     InfoWindow *w = new InfoWindow;
     w->setWindowTitle("INFO");
-    w->setWindowIcon(QIcon("img\\img_logo.png"));
+    w->setWindowIcon(QIcon("img_logo.png"));
     w->setFixedSize(700, 450);
     w->show();
 }
 
-void GameWindow::restart() {
-    this->m_game_components->on_gameReset();
+void MainWindow::restart() {
+    this->m->on_gameReset();
 }
 
-void GameWindow::changeStyleDark() {
+void MainWindow::changeStyleDark() {
     QString back = "#000000";
     QString pick = "#6E6E6E";
-    this->m_game_components->changeColor(back,pick);
+    this->m->changeColor(back,pick);
 }
 
-void GameWindow::changeStyleLight() {
+void MainWindow::changeStyleLight() {
     QString back = "#A9F5BC";
     QString pick = "#A4A4A4";
-    this->m_game_components->changeColor(back, pick);
+    this->m->changeColor(back, pick);
 } 
 
-void GameWindow::changeStyleOcean() {
+void MainWindow::changeStyleOcean() {
     QString back = "#0B4C5F";
     QString pick = "#20B2AA";
-    this->m_game_components->changeColor(back, pick);
+    this->m->changeColor(back, pick);
 }
 
-GameWindow::~GameWindow() {};
+MainWindow::~MainWindow() {};

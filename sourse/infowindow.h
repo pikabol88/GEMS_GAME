@@ -5,7 +5,6 @@
 #include <QMainWindow>
 #include <QApplication>
 
-//! Класс окна информации
 class InfoWindow : public QMainWindow {
 public:
     InfoWindow(QWidget *parent = 0);
